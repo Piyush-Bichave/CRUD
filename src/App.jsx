@@ -13,14 +13,14 @@ function App() {
 
   const fetchStudents = () => {
     axios
-      .get("http://122.184.103.18:8085/student")
+      .get("https://122.184.103.18:8085/student")
       .then((res) => setStudents(res.data))
       .catch((err) => console.error("Error fetching students:", err));
   };
 
   const addStudent = (newStudent) => {
     axios
-      .post("http://122.184.103.18:8085/student/add", newStudent)
+      .post("https://122.184.103.18:8085/student/add", newStudent)
       .then(() => fetchStudents())
       .catch((err) => console.error("Error adding student:", err));
   };
@@ -29,7 +29,7 @@ function App() {
   const updateStudent = (updatedStudent) => {
     axios
       .put(
-        `http://122.184.103.18:8085/student/update/${editingStudent.rollNo}`,
+        `https://122.184.103.18:8085/student/update/${editingStudent.rollNo}`,
         updatedStudent
       )
       .then(() => {
@@ -42,7 +42,7 @@ function App() {
   // Delete a student
   const deleteStudent = (rollNo) => {
     axios
-      .delete(`http://122.184.103.18:8085/student/delete/${rollNo}`)
+      .delete(`https://122.184.103.18:8085/student/delete/${rollNo}`)
       .then(() => fetchStudents())
       .catch((err) => console.error("Error deleting student:", err));
   };
